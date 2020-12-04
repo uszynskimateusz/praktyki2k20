@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Nax-KS-CY9">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="j7Y-6T-oV4">
+            <objects>
+                <navigationController id="Nax-KS-CY9" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uYw-go-FDa">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="izz-3X-N2U"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5MG-8s-WyT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-801" y="78"/>
+        </scene>
+        <!--Start School-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="StartSchool" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R8y-8x-Mi0">
+                                <rect key="frame" x="0.0" y="-10" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </navigationBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZX3-0Q-D2H">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jdv-Ss-T5w" userLabel="StartView">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="109.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's Start!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Buq-ml-kYU">
+                                                <rect key="frame" x="165.5" y="44.5" width="83.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="Buq-ml-kYU" firstAttribute="centerY" secondItem="jdv-Ss-T5w" secondAttribute="centerY" id="lSl-W6-d89"/>
+                                            <constraint firstItem="Buq-ml-kYU" firstAttribute="centerX" secondItem="jdv-Ss-T5w" secondAttribute="centerX" id="yjJ-lq-9Ba"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YBl-AG-P0q" userLabel="ImageView">
+                                        <rect key="frame" x="0.0" y="110.5" width="414" height="110"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vc2-fN-heI">
+                                                <rect key="frame" x="196.5" y="45.5" width="21.5" height="19.5"/>
+                                                <imageReference key="image" image="pencil.slash" catalog="system" symbolScale="large"/>
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="Vc2-fN-heI" firstAttribute="centerX" secondItem="YBl-AG-P0q" secondAttribute="centerX" id="QVg-tF-sSn"/>
+                                            <constraint firstItem="Vc2-fN-heI" firstAttribute="centerY" secondItem="YBl-AG-P0q" secondAttribute="centerY" id="aRO-FE-RIG"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cqV-n9-SKw" userLabel="ChooseView">
+                                        <rect key="frame" x="0.0" y="221.5" width="414" height="109.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MiT-4f-VlR">
+                                                <rect key="frame" x="175.5" y="44.5" width="63" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="MiT-4f-VlR" firstAttribute="centerY" secondItem="cqV-n9-SKw" secondAttribute="centerY" id="dix-73-f3b"/>
+                                            <constraint firstItem="MiT-4f-VlR" firstAttribute="centerX" secondItem="cqV-n9-SKw" secondAttribute="centerX" id="oyT-9v-zg8"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ztO-7J-y2r" userLabel="IntroductionView">
+                                        <rect key="frame" x="0.0" y="332" width="414" height="110"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qvH-Or-qny">
+                                                <rect key="frame" x="165" y="40" width="84" height="30"/>
+                                                <state key="normal" title="Introduction"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="qvH-Or-qny" firstAttribute="centerY" secondItem="ztO-7J-y2r" secondAttribute="centerY" id="UWp-fe-BDo"/>
+                                            <constraint firstItem="qvH-Or-qny" firstAttribute="centerX" secondItem="ztO-7J-y2r" secondAttribute="centerX" id="s6z-Bj-di1"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VUR-aZ-L6i" userLabel="FlashcardsView">
+                                        <rect key="frame" x="0.0" y="443" width="414" height="109.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GsV-J6-3cj">
+                                                <rect key="frame" x="169.5" y="39.5" width="75" height="30"/>
+                                                <state key="normal" title="Flashcards"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="GsV-J6-3cj" firstAttribute="centerX" secondItem="VUR-aZ-L6i" secondAttribute="centerX" id="OAq-wl-oZC"/>
+                                            <constraint firstItem="GsV-J6-3cj" firstAttribute="centerY" secondItem="VUR-aZ-L6i" secondAttribute="centerY" id="d9s-FK-34T"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xhf-Uf-bjR" userLabel="ExerciseView">
+                                        <rect key="frame" x="0.0" y="553.5" width="414" height="110"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jz0-hH-L2P">
+                                                <rect key="frame" x="178" y="40" width="58" height="30"/>
+                                                <state key="normal" title="Exercise"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="jz0-hH-L2P" firstAttribute="centerY" secondItem="Xhf-Uf-bjR" secondAttribute="centerY" id="p5D-jO-yb7"/>
+                                            <constraint firstItem="jz0-hH-L2P" firstAttribute="centerX" secondItem="Xhf-Uf-bjR" secondAttribute="centerX" id="ylD-tK-2OM"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="muS-2j-nYO" userLabel="TestView">
+                                        <rect key="frame" x="0.0" y="664.5" width="414" height="109.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZQ-tv-F61">
+                                                <rect key="frame" x="192" y="39.5" width="30" height="30"/>
+                                                <state key="normal" title="Test"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="oZQ-tv-F61" firstAttribute="centerX" secondItem="muS-2j-nYO" secondAttribute="centerX" id="D6e-6Q-ydW"/>
+                                            <constraint firstItem="oZQ-tv-F61" firstAttribute="centerY" secondItem="muS-2j-nYO" secondAttribute="centerY" id="Wcn-h3-Dng"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZX3-0Q-D2H" secondAttribute="trailing" id="3bS-33-I0W"/>
+                            <constraint firstItem="ZX3-0Q-D2H" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="EKU-5n-Jq8"/>
+                            <constraint firstItem="ZX3-0Q-D2H" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Vki-Jb-94P"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ZX3-0Q-D2H" secondAttribute="bottom" id="feO-ZS-yPb"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Start School" id="hwl-rn-BpY"/>
+                    <connections>
+                        <outlet property="introductionButton" destination="qvH-Or-qny" id="lV0-NX-2dI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="18.840579710144929" y="78.348214285714278"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="pencil.slash" catalog="system" width="128" height="113"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
