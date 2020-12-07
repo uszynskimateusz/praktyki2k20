@@ -10,19 +10,16 @@ import Contentful
 
 class ViewController: UIViewController {
     @IBOutlet weak var introductionButton: UIButton!
+    @IBOutlet weak var imageVC: UIImageView!
+    
+    var exerciseManager = ExerciseManager()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        // Retain the client as a property on a type you define so that
-        // the client's asynchronous network callbacks are executed.
-        let exerciseManager = ExerciseManager()
-        //exerciseManager.fetchExercise()
         exerciseManager.fetchExercise()
-        
-        
-//        exerciseManager.fetchAsset()
     }
 }
 

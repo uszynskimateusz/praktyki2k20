@@ -158,6 +158,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Start School" id="hwl-rn-BpY"/>
                     <connections>
+                        <outlet property="imageVC" destination="Vc2-fN-heI" id="G8G-qZ-8Gl"/>
                         <outlet property="introductionButton" destination="qvH-Or-qny" id="lV0-NX-2dI"/>
                     </connections>
                 </viewController>
