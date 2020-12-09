@@ -30,6 +30,7 @@ class ViewController: UIViewController, ExerciseManagerDelegate {
         if let exercise = exercies {
             exerciseTab = exercise
             print(exerciseTab.count)
+            print("test")
         }
     }
     @IBAction func IntroductionPressed(_ sender: UIButton) {
