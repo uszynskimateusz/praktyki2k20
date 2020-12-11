@@ -15,8 +15,4 @@ struct ExerciseModel {
     let done: Bool
     
     let image: UIImage
-    
-    func printAll() {
-        print("\(title), \(description), \(answer), \(level), \(done), \(image.size)")
-    }
 }

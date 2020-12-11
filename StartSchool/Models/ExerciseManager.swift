@@ -8,14 +8,15 @@
 import UIKit
 
 protocol ExerciseManagerDelegate {
-    func didUpdateExercises(_ exercies: [ExerciseModel]?)
+    func didUpdateExercises(_ exercise: [ExerciseModel])
 }
 
 struct ExerciseManager {
-    let exerciseURL = "https://cdn.contentful.com/spaces/97yxiwi54acc/environments/master/entries?access_token=cFdpVdx9l10BfIDrdvar_M9I36sJiRVUoXIZoRzKCRg"
+    let exerciseURL =  "https://cdn.contentful.com/spaces/97yxiwi54acc/environments/master/entries?access_token=cFdpVdx9l10BfIDrdvar_M9I36sJiRVUoXIZoRzKCRg"
     
     var delegate: ExerciseManagerDelegate?
     
+    //MARK: - Fetch Exercise Model
     func fetchExercise() {
         if let url = URL(string: exerciseURL) { //entries URL
             let session = URLSession(configuration: .default) //url session create
@@ -28,9 +29,7 @@ struct ExerciseManager {
                 }
                 
                 if let safeData = data {
-                    if let exercises = self.parseJSON(exerciseData: safeData) {
-                        self.delegate?.didUpdateExercises(exercises)
-                    }
+                    self.parseJSON(exerciseData: safeData)
                 }
             }
             
@@ -38,54 +37,27 @@ struct ExerciseManager {
         }
     }
     
-    func fetchImage(id: String, completionHandler: @escaping (UIImage) -> Void) {
-        let urlString = "https://cdn.contentful.com/spaces/97yxiwi54acc/environments/master/assets/\(id)?access_token=cFdpVdx9l10BfIDrdvar_M9I36sJiRVUoXIZoRzKCRg"
-        if let url = URL(string: urlString) {
-            let session = URLSession(configuration: .default) //url session create
-            
-            //give session a task
-            let task = session.dataTask(with: url) { (data, response, error) in
-                if error != nil {
-                    print(error!)
-                    return
-                }
-                
-                if let safeData = data {
-                    let decoder = JSONDecoder()
-                    do {
-                        let decodedData = try decoder.decode(ImageData.self, from: safeData)
-                        
-                        if let urlImage = URL(string: "https:\(decodedData.fields.file.url)") {
-                            if let uiImage = UIImage(url: urlImage) {
-                                completionHandler(uiImage)
-                            }
-                        }
-                    } catch {
-                        print(error.localizedDescription)
-                    }
-                }
-            }
-            
-            task.resume() //start task
-        }
-    }
-    
-    
-    func parseJSON(exerciseData: Data) -> [ExerciseModel]? {
+    func parseJSON(exerciseData: Data) {
         let decoder = JSONDecoder()
+        var exerciseTab: [ExerciseModel] = []
         do {
-            let tab: [ExerciseModel] = []
             let decodedData = try decoder.decode(ExerciseData.self, from: exerciseData)
             for d in decodedData.items {
-                fetchImage(id: d.fields.image.sys.id) { image in
-                    let exercise = ExerciseModel(title: d.fields.title, description: d.fields.description, answer: d.fields.answer, level: d.fields.level, done: d.fields.done, image: image)
+                for i in decodedData.includes.Asset {
+                    if d.fields.image.sys.id == i.sys.id {
+                        if let urlImage = URL(string: "https:\(i.fields.file.url)") {
+                            if let uiImage = UIImage(url: urlImage) {
+                                let exercise = ExerciseModel(title: d.fields.title, description: d.fields.description, answer: d.fields.answer, level: d.fields.level, done: d.fields.done, image: uiImage)
+                                exerciseTab.append(exercise)
+                            }
+                        }
+                    }
                 }
             }
-            return tab
         } catch {
-            print(error.localizedDescription)
-            return nil
+            print("erros there \(error.localizedDescription)")
         }
+        self.delegate?.didUpdateExercises(exerciseTab)
     }
 }
 
