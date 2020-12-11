@@ -14,9 +14,10 @@ struct ExerciseModel {
     let level: String
     let done: Bool
     
-    let image: UIImage
-    
-    func printAll() {
-        print("\(title), \(description), \(answer), \(level), \(done), \(image.size)")
-    }
+    let image: UIImage?
+}
+
+struct ExerciseTabModel {
+    let title: String
+    let id: String
 }

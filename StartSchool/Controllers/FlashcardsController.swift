@@ -18,11 +18,7 @@ class FlashcardsController: UIViewController{
         // Do any additional setup after loading the view.
         
         flashcardTableView.dataSource = self
-        flashcardTableView.delegate = self
-
         flashcardTableView.register(UINib(nibName: "FlashcardCell", bundle: nil), forCellReuseIdentifier: "flashcardCell")
-        
-        exerciseManager.fetchExercise()
     }
 }
 
@@ -34,12 +30,10 @@ extension FlashcardsController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "flashcardCell", for: indexPath) as! FlashcardCell
-        cell.titleLabel?.text = array[indexPath.row]
-        cell.descriptionLabel.text = array[indexPath.row]
+        cell.titleLabel.text = array[indexPath.row]
+        cell.descriptionLabel.text = dArray[indexPath.row]
         return cell
     }
 }
 
-extension FlashcardsController: UITableViewDelegate {
-    
-}
+

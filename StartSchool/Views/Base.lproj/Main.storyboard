@@ -29,7 +29,7 @@
         <!--Start School-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="StartSchool" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SectionController" customModule="StartSchool" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -112,7 +112,7 @@
                                                 <rect key="frame" x="169.5" y="39.5" width="75" height="30"/>
                                                 <state key="normal" title="Flashcards"/>
                                                 <connections>
-                                                    <segue destination="oi8-La-oYc" kind="show" id="HIE-Tv-U0C"/>
+                                                    <segue destination="oi8-La-oYc" kind="show" identifier="goToFlashcards" id="HIE-Tv-U0C"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -129,7 +129,7 @@
                                                 <rect key="frame" x="178" y="40" width="58" height="30"/>
                                                 <state key="normal" title="Exercise"/>
                                                 <connections>
-                                                    <segue destination="Tqy-n8-efi" kind="show" id="Bg5-ru-c5h"/>
+                                                    <action selector="exercisePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="H4V-Yh-XwU"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -167,18 +167,20 @@
                     </view>
                     <navigationItem key="navigationItem" title="Start School" id="hwl-rn-BpY"/>
                     <connections>
+                        <outlet property="exerciseButton" destination="jz0-hH-L2P" id="a6T-Wf-9M6"/>
                         <outlet property="imageVC" destination="Vc2-fN-heI" id="G8G-qZ-8Gl"/>
                         <outlet property="introductionButton" destination="qvH-Or-qny" id="lV0-NX-2dI"/>
+                        <segue destination="Tqy-n8-efi" kind="show" identifier="goToExerciseList" id="Wdu-g6-acU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="246" y="78"/>
+            <point key="canvasLocation" x="193" y="78"/>
         </scene>
         <!--Flashcards Controller-->
         <scene sceneID="2I4-RD-fbi">
             <objects>
-                <viewController id="oi8-La-oYc" customClass="FlashcardsController" customModule="StartSchool" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="oi8-La-oYc" customClass="FlashcardsController" customModule="StartSchool" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wob-ly-KR8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -233,10 +235,10 @@
             </objects>
             <point key="canvasLocation" x="1229" y="-485"/>
         </scene>
-        <!--Exercise Controller-->
+        <!--Exercise List Controller-->
         <scene sceneID="FX2-AC-E2B">
             <objects>
-                <viewController id="Tqy-n8-efi" customClass="ExerciseController" customModule="StartSchool" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Tqy-n8-efi" customClass="ExerciseListController" customModule="StartSchool" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CFH-OC-sTm" customClass="exer">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -263,7 +265,7 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hnW-dn-xkK">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hnW-dn-xkK">
                                         <rect key="frame" x="0.0" y="129" width="414" height="679"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
@@ -301,29 +303,31 @@
                     </view>
                     <navigationItem key="navigationItem" id="UB8-ey-bwX"/>
                     <connections>
+                        <outlet property="exerciseLabel" destination="MqV-sX-Z2i" id="ITH-ak-Cot"/>
                         <outlet property="exerciseTableView" destination="hnW-dn-xkK" id="X5P-19-ppY"/>
+                        <segue destination="FVb-kw-AkY" kind="show" identifier="goToExercise" id="BKb-6a-ccW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hDW-dK-ud3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1229" y="606"/>
         </scene>
-        <!--View Controller-->
+        <!--Single Exercise Controller-->
         <scene sceneID="guP-yE-7Ij">
             <objects>
-                <viewController id="FVb-kw-AkY" sceneMemberID="viewController">
+                <viewController id="FVb-kw-AkY" customClass="SingleExerciseController" customModule="StartSchool" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dwK-TN-tAs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="q9x-gI-z3o">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h2s-lf-2OO">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="107.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="99"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6tI-dE-EZY">
-                                                <rect key="frame" x="186.5" y="43.5" width="41.5" height="20.5"/>
+                                                <rect key="frame" x="186.5" y="39" width="41.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -336,10 +340,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fMM-DG-6iO">
-                                        <rect key="frame" x="0.0" y="177.5" width="414" height="107.5"/>
+                                        <rect key="frame" x="0.0" y="169" width="414" height="98.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9i-uf-jdj">
-                                                <rect key="frame" x="186.5" y="43.5" width="41.5" height="20.5"/>
+                                                <rect key="frame" x="186.5" y="39" width="41.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -352,10 +356,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XUa-0t-iOC">
-                                        <rect key="frame" x="0.0" y="355" width="414" height="108"/>
+                                        <rect key="frame" x="0.0" y="337.5" width="414" height="99"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kb6-5v-1bU">
-                                                <rect key="frame" x="87" y="-66" width="240" height="240"/>
+                                                <rect key="frame" x="87" y="-70.5" width="240" height="240"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="240" id="rWn-SB-XiC"/>
                                                     <constraint firstAttribute="height" constant="240" id="zHw-cm-C4c"/>
@@ -369,10 +373,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mb0-nf-nfC">
-                                        <rect key="frame" x="0.0" y="533" width="414" height="107.5"/>
+                                        <rect key="frame" x="0.0" y="506.5" width="414" height="98.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e8U-AH-xEa">
-                                                <rect key="frame" x="153" y="38.5" width="108" height="30"/>
+                                                <rect key="frame" x="153" y="34.5" width="108" height="30"/>
                                                 <state key="normal" title="Show AR Model"/>
                                             </button>
                                         </subviews>
@@ -383,11 +387,14 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J66-0G-5IE">
-                                        <rect key="frame" x="0.0" y="710.5" width="414" height="107.5"/>
+                                        <rect key="frame" x="0.0" y="675" width="414" height="99"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="07R-lR-jZ9">
-                                                <rect key="frame" x="161.5" y="38.5" width="91" height="30"/>
+                                                <rect key="frame" x="161.5" y="34.5" width="91" height="30"/>
                                                 <state key="normal" title="Show answer"/>
+                                                <connections>
+                                                    <action selector="showAnswerPressed:" destination="FVb-kw-AkY" eventType="touchUpInside" id="kiE-rR-fze"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -412,6 +419,14 @@
                             <constraint firstItem="arl-rM-1om" firstAttribute="bottom" secondItem="q9x-gI-z3o" secondAttribute="bottom" id="wk6-31-vRt"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="KnL-pd-VbR"/>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="L9i-uf-jdj" id="Do0-hB-W5t"/>
+                        <outlet property="imageImageView" destination="kb6-5v-1bU" id="qiO-FB-uUE"/>
+                        <outlet property="showARButton" destination="e8U-AH-xEa" id="DDz-a8-2Z0"/>
+                        <outlet property="showAnswerButton" destination="07R-lR-jZ9" id="Y33-Bc-TEK"/>
+                        <outlet property="titleLabel" destination="6tI-dE-EZY" id="wNT-JR-ZpX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gqx-Oi-SF0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

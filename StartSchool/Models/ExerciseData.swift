@@ -8,7 +8,6 @@
 import Foundation
 
 struct ExerciseData: Decodable {
-    let total: Int
     let items: [Items]
 }
 
