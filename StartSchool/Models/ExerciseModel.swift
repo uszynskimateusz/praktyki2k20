@@ -14,10 +14,5 @@ struct ExerciseModel {
     let level: String
     let done: Bool
     
-    let image: UIImage?
-}
-
-struct ExerciseTabModel {
-    let title: String
-    let id: String
+    let image: UIImage
 }

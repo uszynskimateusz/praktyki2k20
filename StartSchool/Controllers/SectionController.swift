@@ -50,9 +50,8 @@ class SectionController: UIViewController {
 }
 
 extension SectionController: ExerciseManagerDelegate {
-    func didUpdateExercises(_ exercise: ExerciseModel) {
-        exerciseTab.append(exercise)
-        exerciseTab = exerciseTab.sorted(by: { $0.title < $1.title })
+    func didUpdateExercises(_ exercise: [ExerciseModel]) {
+        exerciseTab = exercise.sorted(by: { $0.title < $1.title })
         DispatchQueue.main.async {
             self.exerciseButton.isEnabled = true
         }
